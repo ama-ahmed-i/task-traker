@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 100" width="250" height="100">
+  <style>
+    {`
+      .letter {
+        fill: none;
+        stroke-width: 2;
+        stroke-dasharray: 100;  /* Adjusted to match each letter's length */
+        stroke-dashoffset: 100;
+        animation: draw 1.5s forwards, colorChange 1.5s forwards, repeatAnimation 3s infinite;
+      }
+
+      .letter:nth-child(2) {
+        stroke: #eb6207;
+        animation-delay: 1.5s;
+      }
+
+      .letter:nth-child(3) {
+        stroke: #0233d6;
+        animation-delay: 3s;
+      }
+
+      .letter:nth-child(4) {
+        stroke: #660366;
+        animation-delay: 4.5s;
+      }
+
+      @keyframes draw {
+        0% {
+          stroke-dashoffset: 100;
+        }
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      /* Adding color change animation */
+      @keyframes colorChange {
+        0% {
+          stroke: #eb6207; /* Start with black */
+        }
+        100% {
+          stroke: currentColor; /* Use the initial stroke color */
+        }
+      }
+
+      /* Repeat animation: To make the stroke-dash and color change loop */
+      @keyframes repeatAnimation {
+        0% {
+          stroke-dashoffset: 100;
+          stroke: #eb6207;
+        }
+        50% {
+          stroke-dashoffset: 0;
+          stroke: #0233d6;  /* Animated color */
+        }
+        100% {
+          stroke-dashoffset: 100;
+          stroke: #660366;  /* Reset to black */
+        }
+      }
+    `}
+  </style>
+
+  {/* Letters adjusted without space between them */}
+  <text x="10" y="40" className="letter" font-family="Arial" font-size="40">
+    A
+  </text>
+  <text x="35" y="40" className="letter" font-family="Arial" font-size="40">
+    S
+  </text>
+  <text x="60" y="40" className="letter" font-family="Arial" font-size="40">
+    T
+  </text>
+</svg>

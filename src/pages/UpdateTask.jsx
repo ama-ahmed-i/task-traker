@@ -27,10 +27,10 @@ const UpdateTask = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 pt-10 flex flex-col items-center px-4">
-      <div className="flex flex-col w-[35%] justify-center gap-4 p-2">
+    <div className="min-h-screen bg-gray-100 pt-10 flex flex-col items-center p-2 sm:px-4">
+      <div className="flex flex-col w-[90%] sm:w-[35%] justify-center gap-4 p-2">
         <h1 className="text-center text-4xl font-bold">Edit Task</h1>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 w-full">
           <input
             type="text"
             value={taskTitle}
