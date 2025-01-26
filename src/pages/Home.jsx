@@ -4,7 +4,21 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const EditTask = () => {
-  const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")?localStorage.getItem("tasks"):[])||[]);
+
+  // const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")?localStorage.getItem("tasks"):[])||[]);
+
+  const [tasks, setTasks] = useState(() => {
+    const savedTasks = localStorage.getItem("tasks");
+    if (savedTasks) {
+      try {
+        return JSON.parse(savedTasks);
+      } catch (e) {
+        console.error("Error parsing tasks from localStorage", e);
+        return [];
+      }
+    }
+    return [];
+  });
   const [newTask, setNewTask] = useState("");
 
   const navigate = useNavigate();
